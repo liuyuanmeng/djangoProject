@@ -1,0 +1,1 @@
+[{"model": "materials.material", "pk": 1, "fields": {"name": "Gold Jewellery"}}, {"model": "materials.material", "pk": 2, "fields": {"name": "Silver Jewellery"}}, {"model": "materials.material", "pk": 3, "fields": {"name": "14ct Solid Gold & Diamonds"}}, {"model": "materials.material", "pk": 4, "fields": {"name": "Pearl & Gemstone Jewellery"}}]
