@@ -10,8 +10,20 @@ import { VStack, IconButton, useColorMode } from '@chakra-ui/react'
 import { FaRegSun, FaRegMoon } from 'react-icons/fa'
 import Button from 'react-bootstrap/esm/Button'
 import Offcanvas from 'react-bootstrap/Offcanvas'
+// import icons
+import { BsFillHeartFill, BsFillPersonFill, BsBagFill } from 'react-icons/bs'
+import Slider from 'react-slick'
 
 const PageNavbar = () => {
+  const settingsSingle = {
+    dots: true,
+    infinite: true,
+    speed: 4000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3500,
+  }
   const { colorMode, toggleColorMode } = useColorMode()
   const [show, setShow] = useState(false)
 
@@ -31,6 +43,14 @@ const PageNavbar = () => {
 
   return (
     <>
+      <div className='slider-center'>
+        <Slider {...settingsSingle}>
+          <p>GET 10% OFF YOUR FIRST ORDER - SIGN UP HERE </p>
+          <p>FREE UK SHIPPING & EXTENDED RETURNS</p>
+          <p>KLARNA | PAY IN INSTALMENTS</p>
+
+        </Slider>
+      </div>
       <Navbar
         collapseOnSelect
         expand='lg'
@@ -38,14 +58,14 @@ const PageNavbar = () => {
         variant='dark'
         sticky='top'
       >
-      
+
         <Button variant='secondary mt-1' onClick={handleShow}>
           {' '}
           <span className='navbar-toggler-icon'></span>
         </Button>{' '}
         <Offcanvas show={show} onHide={handleClose} placement='start'>
           <Offcanvas.Header closeButton>
-          
+
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Navbar.Toggle aria-controls='responsive-navbar-nav' />
@@ -71,31 +91,46 @@ const PageNavbar = () => {
                 <hr />
                 <span className='d-inline d-sm-none'>
                   <Nav.Link as={Link} to='/register'>
-                  Register
+                    Register
                   </Nav.Link>
                   <Nav.Link as={Link} to='/login'>
-                  Login
+                    Login
                   </Nav.Link>
                 </span>
 
-               
+
               </>
             </Nav>
           </Offcanvas.Body>
         </Offcanvas>
         <div className='mx-auto'>
-          <Navbar.Brand className='align-items: center' as={Link} to='/'>
-          Jewellery
+          <Navbar.Brand className='align-items: center' as={Link} to='/jewelleries/'>
+            Jewellery
           </Navbar.Brand>
-       
         </div>
+
+        <div className='icons'>
+          <Nav.Link as={Link} to='/profile'>
+            <BsFillPersonFill color="white" size={32} className="me-3" />
+          </Nav.Link>
+          <Nav.Link as={Link} to='/favourite'>
+            <BsFillHeartFill color="white" size={30} className="me-3" />
+          </Nav.Link>
+          <Nav.Link as={Link} to='/orders'>
+            <BsBagFill color="white" size={30} className="me-3" />
+          </Nav.Link>
+        </div>
+
+
         <IconButton
           icon={colorMode === 'light' ? <FaRegSun /> : <FaRegMoon />}
           isRound='true'
           size='sm'
           alignSelf='flex-end'
-          ml='3.5'
+          me='3'
+          mb='2'
           onClick={toggleColorMode}
+
         />
       </Navbar>
     </>

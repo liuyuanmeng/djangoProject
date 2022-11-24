@@ -1,0 +1,31 @@
+
+main {
+  overflow:hidden;
+	position:relative;
+	padding-top:5rem;
+	    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+	min-height:100vh;
+	background: rgb(228, 231, 232);
+}
+
+.not-found__texts{
+	font-family:'Roboto', sans-serif;
+	color:rgb(49, 44, 44);
+	position:absolute;
+	top: 0;
+	z-index:1;
+	width:100%;
+	text-align:center;
+	margin-top:1rem;
+}
+.not-found__title{
+	font-weight:800;
+font-size:calc(5rem + 2vw);
+}
+.not-found__subtitle{
+	font-weight:700;
+font-size:calc(1rem + 2vw);
+font-family:'Roboto', sans-serif;
+}
