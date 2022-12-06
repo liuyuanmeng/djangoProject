@@ -1,0 +1,128 @@
+.section-register {
+  max-width: 800px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e7e6e6;
+  .auth-register {
+    width: 640px;
+    a {
+      color: black
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    .create-account {
+      margin: 20px 0;
+      font-size: 14px;
+      font-weight: 200;
+      text-align: center;
+      font-family: 'Source Sans Pro', Arial, sans-serif;
+    }
+    .create-account-paragraph {
+      margin: 0 auto;
+      font-size: 12px;
+      font-weight: 200;
+      text-align: center;
+      max-width: 570px;
+      font-family: 'Source Sans Pro', Arial, sans-serif;
+      .inline-plus {
+        font-family: 'smooch';
+        font-size: 1.4em;
+        color: #80c078;
+      }
+    }
+    .create-account-paragraph-2 {
+      display: flex;
+      justify-content: right;
+      text-align: right;
+      font-size: xx-small;
+      opacity: 0.5;
+      margin: 15px 0 5px 0;
+      font-family: 'Source Sans Pro', Arial, sans-serif;
+    }
+    .form-label {
+      font-family: 'Source Sans Pro', Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: black;
+      .checkbox {
+        max-width: 400px;
+      }
+      .checkbox2 {
+        width: 250px;
+      }
+    }
+    .button-register {
+      font-family: 'Source Sans Pro', Arial, sans-serif;
+      width: inherit;
+      background: #336b75;
+      border: none;
+      font-size: 14px;
+      padding: 5px 0;
+    }
+    .trigger {
+      font-family: 'Source Sans Pro',sans-serif;
+      font-size: 12px;
+      padding: 10px;
+    }
+  }
+}
+
+.section-login {
+  max-width: 800px;
+  padding: 10px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  background-color: #e7e6e6;
+  .auth-login {
+    width: 640px;
+    a {
+      color: black
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    .form-label {
+      font-family: 'Source Sans Pro', Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: black;
+      .login-heading {
+        margin: 20px 0;
+        font-size: 14px;
+        font-weight: 200;
+        text-align: center;
+        font-family: 'Source Sans Pro', Arial, sans-serif;
+      }
+      .login-paragraph {
+        margin: 0 auto;
+        font-size: 12px;
+        font-weight: 200;
+        text-align: center;
+        max-width: 570px;
+        font-family: 'Source Sans Pro', Arial, sans-serif;
+      }
+      .login-paragraph-2 {
+        display: flex;
+        justify-content: right;
+        text-align: right;
+        font-size: xx-small;
+        opacity: 0.5;
+        margin: 15px 0 5px 0;
+        font-family: 'Source Sans Pro', Arial, sans-serif;
+      }
+    }
+    .button-login {
+      font-family: 'Source Sans Pro', Arial, sans-serif;
+      width: inherit;
+      background: #336b75;
+      border: none;
+      font-size: 14px;
+      padding: 5px 0;
+      margin-top: 26px;
+    }
+  }
+}

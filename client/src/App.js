@@ -7,6 +7,7 @@ import Home from './components/jewelleries/Home'
 import Category from './components/jewelleries/Categories'
 import JewelleryShow from './components/jewelleries/JewelleryShow'
 import Register from './components/auth/Register'
+import Login from './components/auth/Login'
 import NotFound from './components/common/NotFound'
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/jewelleries/:id" element={<JewelleryShow />} />
         <Route path="/categories" element={<Category />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
         
       </Routes>

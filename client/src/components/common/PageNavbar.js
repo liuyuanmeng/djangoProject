@@ -49,9 +49,9 @@ const PageNavbar = () => {
       <div className='alert bg-yellow'>
         <div className='message animate'>
           <ul style={{ animation: '90s linear 0s infinite normal none running banner-scroll' }}>
-            <li className="text msg-0">GET 10% OFF YOUR FIRST ORDER - SIGN UP HERE</li>
-            <li className="text msg-1">FREE UK SHIPPING & EXTENDED RETURNS</li>
-            <li className="text msg-2">KLARNA | PAY IN INSTALMENTS</li>
+            <li className="text msg-0  ">GET 10% OFF YOUR FIRST ORDER - SIGN UP HERE</li>
+            <li className="text msg-1  ">FREE UK SHIPPING & EXTENDED RETURNS</li>
+            <li className="text msg-2  ">KLARNA | PAY IN INSTALMENTS</li>
           </ul>
         </div>
       </div>
