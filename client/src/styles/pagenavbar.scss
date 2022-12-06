@@ -1,3 +1,65 @@
-.slider-center{
-  text-align: center;
+
+
+.Navbar{
+  margin-top: 0px;
 }
+.icons{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 15px;
+}
+
+.alert {
+  padding: 4px;
+  margin-bottom: 0px;
+}
+
+.bg-yellow {
+  background: #f2f0eb;
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 900;
+
+}
+
+.alert .message {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-left: 8px;
+  color: #000;
+  font-size: 16px;
+  letter-spacing: -.2px;
+  line-height: 22px;
+  text-transform: uppercase;
+}
+
+.alert  {
+  display: flex;
+  position: relative;
+  text-decoration: none;
+}
+.animate ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.animate ul li {
+  height: 20px;
+  white-space: nowrap;
+}
+
+.text {
+  margin: 0 auto;
+}
+
+@keyframes banner-scroll {
+  0% {
+    transform: translateX(0px);
+  }
+
+  100% {
+    transform: translateX(-3738.5px);
+  }}

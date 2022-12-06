@@ -15,15 +15,15 @@ import { BsFillHeartFill, BsFillPersonFill, BsBagFill } from 'react-icons/bs'
 import Slider from 'react-slick'
 
 const PageNavbar = () => {
-  const settingsSingle = {
-    dots: true,
-    infinite: true,
-    speed: 4000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3500,
-  }
+  // const settingsSingle = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 4000,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   autoplay: true,
+  //   autoplaySpeed: 3500,
+  // }
   const { colorMode, toggleColorMode } = useColorMode()
   const [show, setShow] = useState(false)
 
@@ -41,16 +41,28 @@ const PageNavbar = () => {
     navigate('/jewelleries')
   }
 
+  const navDropdownTitle = (<BsFillPersonFill color="white" size={30} />)
+ 
+
   return (
     <>
-      <div className='slider-center'>
+      <div className='alert bg-yellow'>
+        <div className='message animate'>
+          <ul style={{ animation: '90s linear 0s infinite normal none running banner-scroll' }}>
+            <li className="text msg-0">GET 10% OFF YOUR FIRST ORDER - SIGN UP HERE</li>
+            <li className="text msg-1">FREE UK SHIPPING & EXTENDED RETURNS</li>
+            <li className="text msg-2">KLARNA | PAY IN INSTALMENTS</li>
+          </ul>
+        </div>
+      </div>
+      {/* <div className='slider-center'>
         <Slider {...settingsSingle}>
           <p>GET 10% OFF YOUR FIRST ORDER - SIGN UP HERE </p>
           <p>FREE UK SHIPPING & EXTENDED RETURNS</p>
           <p>KLARNA | PAY IN INSTALMENTS</p>
 
         </Slider>
-      </div>
+      </div> */}
       <Navbar
         collapseOnSelect
         expand='lg'
@@ -89,14 +101,14 @@ const PageNavbar = () => {
                   Story
                 </Nav.Link>
                 <hr />
-                <span className='d-inline d-sm-none'>
-                  <Nav.Link as={Link} to='/register'>
-                    Register
-                  </Nav.Link>
-                  <Nav.Link as={Link} to='/login'>
-                    Login
-                  </Nav.Link>
-                </span>
+
+                <Nav.Link as={Link} to='/register'>
+                  Register
+                </Nav.Link>
+                <Nav.Link as={Link} to='/login'>
+                  Login
+                </Nav.Link>
+
 
 
               </>
@@ -110,28 +122,37 @@ const PageNavbar = () => {
         </div>
 
         <div className='icons'>
-          <Nav.Link as={Link} to='/profile'>
+          <NavDropdown title={navDropdownTitle} id="collasible-nav-dropdown">
+            <NavDropdown.Item as={Link} to="/login">Login</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/register">Register</NavDropdown.Item>
+          </NavDropdown>
+          {/* <Nav.Link as={Link} to='/profile'>
             <BsFillPersonFill color="white" size={32} className="me-3" />
-          </Nav.Link>
+          </Nav.Link> */}
           <Nav.Link as={Link} to='/favourite'>
             <BsFillHeartFill color="white" size={30} className="me-3" />
           </Nav.Link>
           <Nav.Link as={Link} to='/orders'>
             <BsBagFill color="white" size={30} className="me-3" />
           </Nav.Link>
+          <div>
+            <IconButton
+              icon={colorMode === 'light' ? <FaRegSun /> : <FaRegMoon />}
+              isRound='true'
+              size='sm'
+              alignSelf='flex-end'
+              me='3'
+              mb='2'
+              onClick={toggleColorMode}
+
+            />
+          </div>
+
+
         </div>
 
 
-        <IconButton
-          icon={colorMode === 'light' ? <FaRegSun /> : <FaRegMoon />}
-          isRound='true'
-          size='sm'
-          alignSelf='flex-end'
-          me='3'
-          mb='2'
-          onClick={toggleColorMode}
 
-        />
       </Navbar>
     </>
   )

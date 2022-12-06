@@ -36,12 +36,12 @@ const Home = () => {
       <Container className='mt-4'>
         <Row>
           {jewelleries.slice(0, visible).map(jewellery => {
-            const { _id, name, price, image } = jewellery
+            const { id, name, price, image } = jewellery
 
 
             return (
-              <Col key={_id} md="6" lg="4" className='jewellery mb-4'>
-                <Link className='link-dark' to={`/jewelleries/${_id}`}>
+              <Col key={id} md="6" lg="4" className='jewellery mb-4'>
+                <Link className='link-dark' to={`/jewelleries/${id}`}>
                   <Card className='card'>
                     <Card.Img variant="top" src={image} />
                     <Card.Body className='bg-light'>
