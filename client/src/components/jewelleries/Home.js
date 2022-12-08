@@ -11,6 +11,8 @@ import Button from 'react-bootstrap/Button'
 
 
 const Home = () => {
+ 
+
   const [jewelleries, setJewelleries] = useState([])
   const navigate = useNavigate()
   const [visible, setVisible] = useState(6)
@@ -47,6 +49,7 @@ const Home = () => {
                     <Card.Body className='bg-light'>
                       <Card.Title className='text-center mb-0 cardTitle'>{name}  </Card.Title>
                       <Card.Text className='text-center mb-0 text'>£{price}</Card.Text>
+                     
 
                     </Card.Body>
                   </Card>
@@ -57,6 +60,7 @@ const Home = () => {
           })}
           <div className='row justify-content-center'></div>
           <button className='btn btn-outline-dark align-items: center' onClick={showMoreItems}>Load More</button>
+          
           
         </Row>
 

@@ -35,7 +35,7 @@ class RegisterView(APIView):
     def post(self, request):
         user_to_add = UserSerializer(data=request.data)
         try:
-            user_to_add.is_valid(True)
+            user_to_add.is_valid()
             print(user_to_add.errors)
             user_to_add.save()
             return Response({'message': 'Registration Successful'}, status.HTTP_202_ACCEPTED)
@@ -147,7 +147,7 @@ class UserDetailView(APIView):
 
         # Check if deserialized User data is valid, saving if yes or returning an error if no
         try:
-            deserialized_user.is_valid(True)
+            deserialized_user.is_valid()
             deserialized_user.save()
             return Response(deserialized_user.data, status.HTTP_202_ACCEPTED)
         except Exception as e:

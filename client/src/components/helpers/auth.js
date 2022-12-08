@@ -5,4 +5,21 @@ export const getPayload = () => {
   const token = getTokenFromLocalStorage()
   if (!token) return
   const payload = token.split('.')[1]
+  return JSON.parse(atob(payload))
 }
+
+
+// ? function that checks that user is authenticated
+export const userIsAuthenticated = () => {
+  // This function will get the payload for localstorage
+  const payload = getPayload()
+  // Check that payload exists
+  if (!payload) return false
+  // get todays time as a timestamp in seconds
+  const currentTime = Math.floor(Date.now() / 1000)
+  // Compare the token expiry and make sure the expiry is in the future
+  // Return a boolean, true if valid, false if invalid
+  return currentTime < payload.exp
+}
+
+

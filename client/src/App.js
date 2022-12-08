@@ -8,6 +8,8 @@ import Category from './components/jewelleries/Categories'
 import JewelleryShow from './components/jewelleries/JewelleryShow'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
+import Account from './components/account/Account'
+import Like from './components/account/Wishlist'
 import NotFound from './components/common/NotFound'
 
 const App = () => {
@@ -20,6 +22,8 @@ const App = () => {
         <Route path="/categories" element={<Category />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/like" element={<Like />} />
         <Route path="*" element={<NotFound />} />
         
       </Routes>

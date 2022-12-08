@@ -29,13 +29,16 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const { data } = await axios.post('/api/auth/login/', formData)
-      setTokenToLocalStorage(data.token)
+
+      const response = await axios.post('/api/auth/login/', formData)
+      setTokenToLocalStorage(response.data.token)
       navigate('/account')
-    } catch (err) {
-      console.log(err)
-      setErrors(true)
+    } catch (error) {
+
+      setErrors(error.response.data.message)
     }
+
+
   }
 
   // ? Handle change
