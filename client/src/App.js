@@ -8,8 +8,8 @@ import Category from './components/jewelleries/Categories'
 import JewelleryShow from './components/jewelleries/JewelleryShow'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
-import Account from './components/account/Account'
-import Like from './components/account/Wishlist'
+import Account from './components/user/Account'
+import Like from './components/user/Wishlist'
 import NotFound from './components/common/NotFound'
 
 const App = () => {
