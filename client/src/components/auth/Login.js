@@ -29,11 +29,13 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-
+      console.log('testing console')
       const response = await axios.post('/api/auth/login/', formData)
+      console.log(response)
       setTokenToLocalStorage(response.data.token)
       navigate('/account')
     } catch (error) {
+      console.log(error)
 
       setErrors(error.response.data.message)
     }

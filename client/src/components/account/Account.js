@@ -3,21 +3,24 @@ import axios from 'axios'
 
 import { useParams, Link, useNavigate } from 'react-router-dom'
 
-import { userIsAuthenticated, getTokenFromLocalStorage } from '../helpers/auth'
+import { userIsAuthenticated, getTokenFromLocalStorage,getPayload } from '../helpers/auth'
 import Spinner from '../../utilities/Spinner'
 
 const Account = () => {
-  // const { id } = useParams()
+  const payload = getPayload()
+  const id = payload.sub
   const navigate = useNavigate()
   const [account, setAccount] = useState('')
   const [errors, setErrors] = useState(false)
+
+  console.log(id)
 
   useEffect(() => {
    
 
     const getAccount = async () => {
       try {
-        const { data } = await axios.get('/api/profile', {
+        const { data } = await axios.get(`/api/auth/profile/${id}`, {
           headers: {
             Authorization: `Bearer ${getTokenFromLocalStorage()}`,
           },
@@ -35,13 +38,14 @@ const Account = () => {
     getAccount()
 
   }, [])
+  console.log(account)
 
   return (
     <section>
 
 
       <h1 className='text-center mt-5'>Account Dashboard</h1>
-      <h5>Hi {account.firstName}, welcome to your account dashboard</h5>
+      <h5>Hi {account.first_name}, welcome to your account dashboard</h5>
       <div className='box'>
         <div className="row">
           <div className="col-sm-6">

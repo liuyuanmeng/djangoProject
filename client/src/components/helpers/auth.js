@@ -23,3 +23,10 @@ export const userIsAuthenticated = () => {
 }
 
 
+// export const userIsOwner = (favourite ) => {
+//   // get payload and check it has a value
+//   // console.log('favourite  user owner', favourite .owner._id)
+//   const payload = getPayload()
+//   if (!payload) return
+//   return favourite .owner === payload.sub
+// }
