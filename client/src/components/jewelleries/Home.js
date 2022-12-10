@@ -11,7 +11,21 @@ import Button from 'react-bootstrap/Button'
 
 
 const Home = () => {
- 
+  
+  const [likeArray, setLikeArray] = useState([])
+  console.log(likeArray)
+
+  useEffect(() => {
+    const data = window.localStorage.getItem('LIKED_JEWELLERIES')
+    console.log(data)
+    if (data !== null) {
+      setLikeArray(JSON.parse(data))
+    }
+  }, [])
+
+  useEffect(() => {
+    window.localStorage.setItem('LIKED_JEWELLERIES', JSON.stringify(likeArray))
+  }, [likeArray])
 
   const [jewelleries, setJewelleries] = useState([])
   const navigate = useNavigate()
@@ -49,13 +63,32 @@ const Home = () => {
                     <Card.Body className='bg-light'>
                       <Card.Title className='text-center mb-0 cardTitle'>{name}  </Card.Title>
                       <Card.Text className='text-center mb-0 text'>£{price}</Card.Text>
+
                      
 
                     </Card.Body>
                   </Card>
                 </Link>
+
+
+                <button onClick={() => likeArray.includes(id) ? setLikeArray(likeArray.filter(item => item !== id)) : setLikeArray([...likeArray, id])}>{likeArray.includes(id) ? '❤️' : '🤍'}</button>
+                
+                {/* 
+                likeArray = [1,3,5,8]
+
+                id = 1
+                
+                let newLikeArray = []
+                for item in likeArray:
+                  if item !== id:
+                    newLikeArray.append(item)
+                return newLikeArray
+
+                likeArray = newLikeArray */}
+               
               </Col>
             )
+
 
           })}
           <div className='row justify-content-center'></div>
@@ -65,6 +98,7 @@ const Home = () => {
         </Row>
 
       </Container>
+      
     </>
 
   )

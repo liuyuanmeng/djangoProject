@@ -11,6 +11,7 @@ import Card from 'react-bootstrap/Card'
 import Spinner from '../../utilities/Spinner'
 
 const JewelleryShow = () => {
+
   const [like, setLike] = useState(false)
   console.log(like)
 
@@ -25,6 +26,8 @@ const JewelleryShow = () => {
   useEffect(() => {
     window.localStorage.setItem('LIKE_STATUS', JSON.stringify(like))
   }, [like])
+
+  
 
   const navigate = useNavigate()
   const { id } = useParams()
@@ -64,8 +67,9 @@ const JewelleryShow = () => {
                 <hr />
                 <h5 className='price'>£{jewellery.price}</h5>
                 <hr />
-
                 <button onClick={() => setLike(!like)}>{like ? '❤️' : '🤍'}</button>
+
+                
               </Col>
             </>
             :
