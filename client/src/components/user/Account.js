@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Card from 'react-bootstrap/Card'
 
 import { useParams, Link, useNavigate } from 'react-router-dom'
 
-import { userIsAuthenticated, getTokenFromLocalStorage,getPayload } from '../helpers/auth'
+import { userIsAuthenticated, getTokenFromLocalStorage, getPayload } from '../helpers/auth'
 import Spinner from '../../utilities/Spinner'
 
 const Account = () => {
@@ -16,7 +17,7 @@ const Account = () => {
   console.log(id)
 
   useEffect(() => {
-   
+
 
     const getAccount = async () => {
       try {
@@ -42,33 +43,19 @@ const Account = () => {
 
   return (
     <section>
+      <Card className="bg-dark text-white mt-5" >
+        <Card.Title>Account Dashboard</Card.Title>
+        <Card.Text>Hi {account.first_name}, welcome to your account dashboard </Card.Text>
+        <Card.Title>Personal Information</Card.Title>
+        <div className="col-md-6"><h4>Name: <span>{account.first_name}</span></h4></div>
+        <div className="col-md-6"><h4>Surname: <span>{account.last_name}</span></h4></div>
+        <div className="col-md-6"><h4>Email: <span>{account.email}</span></h4></div>
 
 
-      <h1 className='text-center mt-5'>Account Dashboard</h1>
-      <h5>Hi {account.first_name}, welcome to your account dashboard</h5>
-      <div className='box'>
-        <div className="row">
-          <div className="col-sm-6">
-            <div className="card">
-              <div className="card-body">
 
 
-                <a href="/account/profile/" className="btn">👤Your Profile</a>
-              </div>
-            </div>
-          </div>
-          <div className="col-sm-6">
-            <div className="card">
-              <div className="card-body">
-                <a href="/account/wishlist/" className="btn">❤️Wish Lists</a>
-              </div>
-            </div>
-          </div>
-        
-        </div>
-      </div>
 
-
+      </Card>
 
 
     </section>
