@@ -125,6 +125,7 @@ const PageNavbar = () => {
           <NavDropdown title={navDropdownTitle} id="collasible-nav-dropdown">
             <NavDropdown.Item as={Link} to="/login">Login</NavDropdown.Item>
             <NavDropdown.Item as={Link} to="/register">Register</NavDropdown.Item>
+            <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
           </NavDropdown>
           {/* <Nav.Link as={Link} to='/profile'>
             <BsFillPersonFill color="white" size={32} className="me-3" />

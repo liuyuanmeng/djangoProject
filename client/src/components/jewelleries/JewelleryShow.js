@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams, Link, useNavigate } from 'react-router-dom'
+import Nav from 'react-bootstrap/Nav'
+
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -9,15 +11,17 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 
 import Spinner from '../../utilities/Spinner'
+import { userIsAuthenticated, getTokenFromLocalStorage, getPayload } from '../helpers/auth'
+import { handleFavouriteButton } from '../helpers/favourite'
 
 const JewelleryShow = () => {
 
+  const [addButtonText, setAddButtonText] = useState('Add to Favourite')
+
   const [like, setLike] = useState(false)
-  console.log(like)
 
   useEffect(() => {
     const data = window.localStorage.getItem('LIKE_STATUS')
-    console.log(data)
     if (data !== null) {
       setLike(JSON.parse(data))
     }
@@ -27,9 +31,9 @@ const JewelleryShow = () => {
     window.localStorage.setItem('LIKE_STATUS', JSON.stringify(like))
   }, [like])
 
-  
 
-  const navigate = useNavigate()
+
+  
   const { id } = useParams()
   const [jewellery, setJewllery] = useState(null)
   const [errors, setErrors] = useState(false)
@@ -69,7 +73,7 @@ const JewelleryShow = () => {
                 <hr />
                 <button onClick={() => setLike(!like)}>{like ? '❤️' : '🤍'}</button>
 
-                
+
               </Col>
             </>
             :
@@ -79,6 +83,21 @@ const JewelleryShow = () => {
           }
 
         </Row>
+
+        {userIsAuthenticated() ?
+        /* Add to  Favourite Button */
+
+          <Button onClick={() => handleFavouriteButton(getTokenFromLocalStorage(), id, getPayload().sub, addButtonText, setAddButtonText)}>{addButtonText}</Button>
+
+
+
+          :
+          <><Nav.Link as={Link} to="/register">Register</Nav.Link>
+            <Nav.Link as={Link} to="/login">Login</Nav.Link></>
+
+
+        }
+
 
       </Card>
 

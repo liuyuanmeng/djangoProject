@@ -41,17 +41,17 @@ const Category = () => {
     <>
       <div className='jewellery-show'>
         {categories.map(category => {
-          const { _id, name, jewelleries } = category
+          const { id, name, jewelleries } = category
           return (
-            <div key={_id}>
+            <div key={id}>
               <h2>{name}</h2>
 
               <Slider {...settings} className='carousel-wrapper'>
                 {jewelleries.map(jewellery => {
-                  const { _id, name, price, image } = jewellery
+                  const { id, name, price, image } = jewellery
                   return (
-                    <div key={_id}>
-                      <Link to={`/jewellery/${_id}`}>
+                    <div key={id}>
+                      <Link to={`/jewelleries/${id}`}>
                         <div className="image-wrapper">
                           <img src={image} />
                         </div>
