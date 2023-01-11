@@ -18,19 +18,7 @@ const JewelleryShow = () => {
 
   const [addButtonText, setAddButtonText] = useState('Add to Favourite')
 
-  const [like, setLike] = useState(false)
-
-  useEffect(() => {
-    const data = window.localStorage.getItem('LIKE_STATUS')
-    if (data !== null) {
-      setLike(JSON.parse(data))
-    }
-  }, [])
-
-  useEffect(() => {
-    window.localStorage.setItem('LIKE_STATUS', JSON.stringify(like))
-  }, [like])
-
+  const [likeArray, setLikeArray] = useState([])
 
 
   
@@ -71,7 +59,6 @@ const JewelleryShow = () => {
                 <hr />
                 <h5 className='price'>£{jewellery.price}</h5>
                 <hr />
-                <button onClick={() => setLike(!like)}>{like ? '❤️' : '🤍'}</button>
 
 
               </Col>

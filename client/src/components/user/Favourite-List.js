@@ -51,7 +51,7 @@ const Favourite = () => {
     }
     getFavourites()
 
-  }, [favourites])
+  }, [])
   console.log(favourites)
 
 
