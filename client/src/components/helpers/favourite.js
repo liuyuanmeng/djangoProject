@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 export const deleteFavourite = async (token,jewelleryId,userId) => {
   
- 
+  
   
   await axios.delete(`/api/auth/profile/${userId}/favourite/`, {
    
@@ -52,7 +52,10 @@ export const handleFavouriteButton = (token, jewelleryId, userId, addButtonText,
       
     } else {
       deleteFavourite(token, jewelleryId, userId)
+ 
       setAddButtonText('Add to Favourite')
+     
+    
       
      
       

@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { userIsAuthenticated, getTokenFromLocalStorage, getPayload } from '../helpers/auth'
 import { handleFavouriteButton } from '../helpers/favourite'
+import { deleteFavourite } from '../helpers/favourite'
 import Nav from 'react-bootstrap/Nav'
 
 // Bootstrap components
@@ -17,11 +18,11 @@ import Card from 'react-bootstrap/Card'
 
 const Favourite = () => {
 
-  
+
   const [addButtonText, setAddButtonText] = useState('Remove from Favourite')
   const [favourites, setFavourites] = useState([])
   const navigate = useNavigate()
-  const routeChange = () =>{ 
+  const routeChange = () => {
     const path = '/favourite'
     navigate(path)
   }
@@ -29,6 +30,10 @@ const Favourite = () => {
 
   const payload = getPayload()
   const id = payload.sub
+
+  function refreshPage() {
+    window.location.reload(false)
+  }
 
   useEffect(() => {
 
@@ -77,8 +82,11 @@ const Favourite = () => {
               </Link>
 
               {userIsAuthenticated() ?
-                /* Add to  Favourite Button */
-                <Button onClick= {() => handleFavouriteButton(getTokenFromLocalStorage(), id, getPayload().sub, addButtonText, setAddButtonText)}>{addButtonText}</Button> :
+              /* Add to  Favourite Button */
+
+                <Button onClick={refreshPage}><Button onClick={() => handleFavouriteButton(getTokenFromLocalStorage(), id, getPayload().sub, addButtonText, setAddButtonText)}>{addButtonText}</Button></Button>
+
+                :
                 <><Nav.Link as={Link} to="/register">Register</Nav.Link>
                   <Nav.Link as={Link} to="/login">Login</Nav.Link></>
 

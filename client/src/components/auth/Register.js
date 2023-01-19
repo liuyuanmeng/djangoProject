@@ -43,8 +43,10 @@ const Register = () => {
       await axios.post('/api/auth/register/', formData)
       navigate('/login')
     } catch (error) {
+      console.log(error)
 
       setErrors(error)
+      console.log('checking setErrors')
 
     }
   }
@@ -73,36 +75,44 @@ const Register = () => {
 
                   <Form.Label>Email</Form.Label>
                   <Form.Control type="email" name='email' value={formData.email} onChange={handleChange} />
+                  {errors.email && <p className='text-danger'>{errors.email}</p>}
                 </Form.Group>
 
                 <Form.Group className='mb-3'>
 
                   <Form.Label>User Name</Form.Label>
                   <Form.Control type="username" name='username' value={formData.username} onChange={handleChange} />
+                  {errors.username && <p className='text-danger'>{errors.username}</p>}
+
                 </Form.Group>
 
                 <Form.Group className='mb-3'>
 
                   <Form.Label>First Name</Form.Label>
                   <Form.Control type="firstname" name='first_name' value={formData.first_name} onChange={handleChange} />
+                  {errors.firstName && <p className='text-danger'>{errors.firstName}</p>}
                 </Form.Group>
 
                 <Form.Group className='mb-3'>
 
                   <Form.Label>Last Name</Form.Label>
                   <Form.Control type="lastname" name='last_name' value={formData.last_name} onChange={handleChange} />
+                  {errors.lastName && <p className='text-danger'>{errors.lastName}</p>}
+
                 </Form.Group>
 
                 <Form.Group className='mb-3'>
 
                   <Form.Label>Password</Form.Label>
                   <Form.Control type="password" name='password' value={formData.password} onChange={handleChange} />
+                  {errors.password && <p className='text-danger'>{errors.password}</p>}
                 </Form.Group>
 
                 <Form.Group className='mb-3'>
 
                   <Form.Label>Password Confirmation</Form.Label>
-                  <Form.Control type="password_Confirmationv" name='password_confirmation' value={formData.password_confirmation} onChange={handleChange} />
+                  <Form.Control type="password" name='password_confirmation' value={formData.password_confirmation} onChange={handleChange} />
+                  {errors.passwordConfirmation && <p className='text-danger'>{errors.password_Confirmation}</p>}
                 </Form.Group>
 
                 <Form.Group className='mb-3'>

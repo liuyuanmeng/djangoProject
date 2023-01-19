@@ -6,8 +6,17 @@
 .icons{
   margin-top: 20px;
   display: flex;
-  justify-content: space-between;
-  padding-left: 15px;
+  
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content:space-around;
+  .box{
+    width: '3rem';
+    height: '3rem'
+
+  }
+
+  
 }
 
 .alert {
