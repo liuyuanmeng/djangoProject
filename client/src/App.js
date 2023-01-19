@@ -12,6 +12,7 @@ import NotFound from './components/common/NotFound'
 import Success from './pages/Success'
 import Cancel from './pages/Cancel'
 import Home from './components/jewelleries/Home'
+import Landing from './components/jewelleries/Landing'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
     <BrowserRouter>
       <PageNavbar />
       <Routes>
+        <Route path="/" element={<Landing />} />
         <Route path="/jewelleries" element={<Home />} />
         <Route path="/jewelleries/:id" element={<JewelleryShow />} />
         <Route path="/categories" element={<Category />} />
