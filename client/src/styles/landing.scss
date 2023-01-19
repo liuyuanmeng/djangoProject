@@ -1,0 +1,24 @@
+// .blink-soft{
+//     animation: blinker 1.5s liner infinite;
+//     font-weight: Helvetica;
+// }
+// @keyframes blinker {
+//     50% {
+//         opacity: 0;
+//     }
+// }
+.blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+    color: chocolate;
+  }
+  @keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+  @-webkit-keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }

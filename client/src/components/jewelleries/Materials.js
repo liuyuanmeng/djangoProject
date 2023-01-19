@@ -17,14 +17,14 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 
-const Category = () => {
+const Materials = () => {
   // Navigate
   const navigate = useNavigate()
-  const [categories, setCategories] = useState([])
+  const [materials, setMaterials] = useState([])
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get('/api/categories/')
-      setCategories(data)
+      const { data } = await axios.get('/api/materials/')
+      setMaterials(data)
     }
     getData()
   }, [navigate])
@@ -40,8 +40,8 @@ const Category = () => {
   return (
     <>
       <div className='jewellery-show'>
-        {categories.map(category => {
-          const { id, name, jewelleries } = category
+        {materials.map(material => {
+          const { id, name, jewelleries } = material
           return (
             <div key={id}>
               <h2>{name}</h2>
@@ -72,7 +72,7 @@ const Category = () => {
 
               </Slider>
 
-              
+
 
             </div>
 
@@ -85,5 +85,5 @@ const Category = () => {
   )
 }
 
-export default Category
+export default Materials
 
