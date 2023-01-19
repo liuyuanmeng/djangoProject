@@ -5,4 +5,5 @@ export const getPayload = () => {
   const token = getTokenFromLocalStorage()
   if (!token) return
   const payload = token.split('.')[1]
+  return JSON.parse(atob(payload))
 }
