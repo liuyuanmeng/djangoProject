@@ -9,8 +9,19 @@ import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+// order
+import { userIsAuthenticated, getTokenFromLocalStorage, getPayload } from '../helpers/auth'
+
+
 
 const Home = () => {
+  function refreshPage() {
+    window.location.reload(false)
+  }
+  const { id } = useParams()
+
+  const [addButtonText, setAddButtonText] = useState('Add to Order')
+
   const [likeArray, setLikeArray] = useState([])
 
   const [cartProducts, setCartProducts] = useState([])
@@ -26,6 +37,8 @@ const Home = () => {
   useEffect(() => {
     window.localStorage.setItem('cart', JSON.stringify(cartProducts))
   }, [cartProducts])
+
+
 
   useEffect(() => {
     const data = window.localStorage.getItem('LIKED_JEWELLERIES')
@@ -142,6 +155,13 @@ const Home = () => {
           {jewelleries.slice(0, visible).map(jewellery => {
             const { id, name, price, image } = jewellery
 
+            // console.log({
+            //   id: id,
+            //   name: name,
+            //   price: price,
+            //   quantity: 1,
+            // })
+
             const productQuantity = getProductQuantity(id)
 
             return (
@@ -230,6 +250,7 @@ const Home = () => {
               </Col>
             )
           })}
+         
 
           <div className="row justify-content-center"></div>
           <button

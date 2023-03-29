@@ -14,9 +14,11 @@ import Spinner from '../../utilities/Spinner'
 import { userIsAuthenticated, getTokenFromLocalStorage, getPayload } from '../helpers/auth'
 import { handleFavouriteButton } from '../helpers/favourite'
 
+
 const JewelleryShow = () => {
 
   const [addButtonText, setAddButtonText] = useState('Add to Favourite')
+
 
   const [likeArray, setLikeArray] = useState([])
 

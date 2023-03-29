@@ -11,6 +11,8 @@ autopep8 = "*"
 djangorestframework = "*"
 pyjwt = "*"
 stripe = "*"
+django-environ = "*"
+awsebcli = "*"
 
 [dev-packages]
 

@@ -150,3 +150,6 @@ STRIPE_SECRET_KEY = ""
 
 
 SITE_URL = 'http://localhost:3000'
+# CoreRoot/settings.py
+
+

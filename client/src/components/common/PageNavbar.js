@@ -6,12 +6,10 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Modal from 'react-bootstrap'
-// import { userIsAuthenticated } from '../helpers/auth'
 import { VStack, IconButton, useColorMode } from '@chakra-ui/react'
 import { FaRegSun, FaRegMoon } from 'react-icons/fa'
 import Button from 'react-bootstrap/esm/Button'
 import Offcanvas from 'react-bootstrap/Offcanvas'
-// import icons
 import {
   BsFillHeartFill,
   BsFillPersonFill,
@@ -59,24 +57,6 @@ const PageNavbar = () => {
   const [cartshow, setCartShow] = useState(false)
   const handleCartClose = () => setCartShow(false)
   const handleCartShow = () => setCartShow(true)
-
-  // const checkout = async () => {
-  //   await fetch('http://localhost:4000/checkout', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({ items: cart.items }),
-  //   })
-  //     .then(response => {
-  //       return response.json()
-  //     })
-  //     .then(response => {
-  //       if (response.url) {
-  //         window.location.assign(response.url) // Forwarding user to Stripe
-  //       }
-  //     })
-  // }
 
   return (
     <>
@@ -127,9 +107,7 @@ const PageNavbar = () => {
                   Materials
                 </Nav.Link>
 
-                <Nav.Link as={Link} to="/contact-us">
-                  Contact Us
-                </Nav.Link>
+               
                 <Nav.Link as={Link} to="/story">
                   Story
                 </Nav.Link>
@@ -192,46 +170,18 @@ const PageNavbar = () => {
           <div className="box">
             <Navbar.Collapse className="justify-content-end">
               {/* <Button onClick={handleShow}> */}
-              <span style={{ color: 'white' }}>
-                {' '}
-                <BsFillBasket3Fill color="white" size={30} className="me-3" />
-                Cart ({totalQuantity} items)
-              </span>
+            
+              <Nav.Link as={Link} to="/order">
+                <span style={{ color: 'white' }}>
+                  {' '}
+                  <BsFillBasket3Fill color="white" size={30} className="me-3" />
+                  Cart ({totalQuantity} items)
+                </span>
+
+              </Nav.Link>
               {/* </Button> */}
             </Navbar.Collapse>
-            {/* <Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>Shopping Cart</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                {totalQuantity > 0 ? (
-                  <>
-                    <p>Items in your cart:</p>
-                    {cartProducts.map((currentProduct, idx) => (
-                       (
-                        <>
-                          <h3>{productData.title}</h3>
-                          <p>{quantity} total</p>
-                          <p>${(quantity * productData.price).toFixed(2)}</p>
-                          <Button size="sm" onClick={() => cart.deleteFromCart(id)}>
-                            Remove
-                          </Button>
-                          <hr></hr>
-                        </>
-                      )
-                    ))}
-
-                    <h1>Total: {cart.getTotalCost().toFixed(2)}</h1>
-
-                    <Button variant="success" onClick={checkout}>
-                      Purchase items!
-                    </Button>
-                  </>
-                ) : (
-                  <h1>There are no items in your cart!</h1>
-                )}
-              </Modal.Body>
-            </Modal> */}
+         
           </div>
 
           <div
