@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 from decouple import config 
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -84,9 +86,9 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'daisy1-store', # name of db, needs to be created manually `createdb record-store`
-        'HOST': 'localhost', # host where our database server is running, in our case localhost
-        'PORT': 5432
+        'NAME': 'daisy1-store',  # name of db, needs to be created manually `createdb record-store`
+        'HOST': 'localhost',  # host where our database server is running, in our case localhost
+        'PORT': 5432,
     }
 }
 

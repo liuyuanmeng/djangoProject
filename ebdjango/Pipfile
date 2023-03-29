@@ -13,6 +13,7 @@ pyjwt = "*"
 stripe = "*"
 django-environ = "*"
 awsebcli = "*"
+python-decouple = "*"
 
 [dev-packages]
 
