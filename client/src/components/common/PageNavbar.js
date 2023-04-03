@@ -38,7 +38,7 @@ const PageNavbar = () => {
     if (data !== null) {
       setCartProducts(JSON.parse(data))
     }
-  }, [cartProducts])
+  }, [])
 
   const totalQuantity = cartProducts
     .map(item => item.quantity)

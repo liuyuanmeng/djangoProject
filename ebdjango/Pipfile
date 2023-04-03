@@ -14,6 +14,7 @@ stripe = "*"
 django-environ = "*"
 awsebcli = "*"
 python-decouple = "*"
+django-allauth = "*"
 
 [dev-packages]
 

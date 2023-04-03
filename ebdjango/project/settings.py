@@ -14,6 +14,8 @@ from pathlib import Path
 from decouple import config 
 import os
 
+from django.conf import settings
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,6 +34,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+SITE_ID = 1
+SOCIALACCOUNT_LOGIN_ON_GET = True
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -45,7 +50,12 @@ INSTALLED_APPS = [
     'jwt_auth',
     'materials',
     'categories',
-    'orders'
+    'orders',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
  
 ]
 
@@ -147,9 +157,34 @@ REST_FRAMEWORK = {
     ]
 }
 
+SOCIALACCOUNT_LOGIN_ON_GET = True
+
+AUTHENTICATION_BACKENDS = [
+    
+    'allauth.account.auth_backends.AuthenticationBackend'
+]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+LOGIN_REDIRECT_URL = '/api/categories/'
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
+
 STRIPE_PUBLIC_KEY = ""
 STRIPE_SECRET_KEY = ""
-
 
 SITE_URL = 'http://localhost:3000'
 # CoreRoot/settings.py

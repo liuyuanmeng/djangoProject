@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import GoogleLogin from 'react-google-login'
+
 
 // Bootstrap components
 import Container from 'react-bootstrap/Container'
@@ -9,6 +11,8 @@ import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/esm/Button'
 const Login = () => {
+
+  
   // Navigate to user's account
   const navigate = useNavigate()
 
@@ -49,6 +53,18 @@ const Login = () => {
     setErrors(false)
   }
 
+  const onSuccess = (response) => {
+    console.log(response)
+    // Handle successful authentication
+  }
+
+  const onFailure = (response) => {
+    console.log(response)
+    // Handle failed authentication
+  }
+
+
+
   return (
     <section className='section-login'>
       <Form className='auth-login' onSubmit={handleSubmit}>
@@ -76,8 +92,17 @@ const Login = () => {
               Login
             </Button>
           </Form.Group>
+          
         </Row>
       </Form>
+      <GoogleLogin
+        clientId="95928069272-hv352lh1r5m2taklmepaj5ct7ffkan2m.apps.googleusercontent.com"
+        buttonText="Login with Google"
+        onSuccess={onSuccess}
+        onFailure={onFailure}
+        cookiePolicy={'single_host_origin'}/>
+      
+      
     </section>
   )
 
