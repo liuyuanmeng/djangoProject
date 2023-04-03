@@ -31,7 +31,7 @@ const JewelleryShow = () => {
   useEffect(() => {
     const getJewellery = async () => {
       try {
-        const { data } = await axios.get(`/api/jewelleries/${id}`)
+        const { data } = await axios.get(`/api/jewelleries/${id}/`)
         setJewllery(data)
         console.log(data)
 

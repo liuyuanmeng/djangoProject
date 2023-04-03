@@ -39,7 +39,7 @@ const Favourite = () => {
 
     const getFavourites = async () => {
       try {
-        const { data } = await axios.get(`/api/auth/profile/${id}`, {
+        const { data } = await axios.get(`/api/auth/profile/${id}/`, {
           headers: {
             Authorization: `Bearer ${getTokenFromLocalStorage()}`,
           },
